@@ -1,3 +1,19 @@
+/* Variable*/
+var left = document.getElementById("left");
+var right = document.getElementById("right");
+
+//On teste si les élements sont detecté
+console.log(left);
+console.log(right);
+
+//On ajoute des evénement au clic
+left.addEventListener("click", () => {alert('Bouton gauche')} );
+right.addEventListener("click", () => {alert('Bouton droite')} );
+
+
+// Fonction
+
+
 const slides = [
 	{
 		"image":"slide1.jpg",
