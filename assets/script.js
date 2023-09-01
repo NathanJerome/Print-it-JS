@@ -23,20 +23,6 @@ const slides = [
 ];
 
 
-//On teste si les élements sont detecté
-/*console.log(left);
-console.log(right);
-console.log("il y'a dans le slider " + slides.length);*/
-
-
-
-//On ajoute des evénement au clic
-//left.addEventListener("click", () => {alert('Bouton gauche')} );
-//right.addEventListener("click", () => {alert('Bouton droite')} );
-
-//
-
-
 // Fonction
 left.addEventListener("click", () => dotChange("left"));
 right.addEventListener("click", () => dotChange("right"));
@@ -59,6 +45,7 @@ function dot_generation(){
 	
 	}
 
+//On appelle notre fonction afin qu'elle soit executé au chargement de la page
 dot_generation();
 
 function dotChange(direction){
@@ -68,30 +55,28 @@ function dotChange(direction){
 		if (dot[i].classList.contains("dot_selected")) {
 			selectedIndex = i;
 			dot[i].classList.remove("dot_selected")
-			//console.log("Avant le +" + selectedIndex)
+			
 			if(direction == "left"){
 				if(selectedIndex == 0){
 					
-					selectedIndex = dot.length -1
+					selectedIndex = dot.length -1;
 				}
 				else{
-					selectedIndex--
+					selectedIndex--;
 				}
 			}
 			else{
 				if(selectedIndex == dot.length -1){
-					//console.log("Dans la boucle")
-					selectedIndex = 0
+					selectedIndex = 0;
 				}
 				else{
-					selectedIndex++
+					selectedIndex++;
 				}
-				
 			}
-			dot[selectedIndex].classList.add('dot_selected')
-			img.src = "./assets/images/slideshow/" + slides[selectedIndex].image
-			p.innerHTML = slides[selectedIndex].tagLine
-			//console.log("Apres " +selectedIndex)
+
+			dot[selectedIndex].classList.add('dot_selected');
+			img.src = "./assets/images/slideshow/" + slides[selectedIndex].image;
+			p.innerHTML = slides[selectedIndex].tagLine;
 			break; // Sortir de la boucle une fois que l'élément a été trouvé
 		}
 	}
